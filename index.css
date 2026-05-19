@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Inter:wght@400;900&family=Archivo+Narrow:wght@700&display=swap');
+
+:root {
+    /* --- COLOR PALETTE --- */
+    /* Primary / Hero */
+    --color-midnight: #000841;
+
+    /* Secondary / Containers */
+    --color-corporate: #001C7C;
+
+    /* Accents */
+    --color-accent-sky: #00A8E6;
+    --color-action-orange: #FE6D00;
+
+    /* Support */
+    --color-support-blue: #9ED7FF;
+    --color-support-purple: #B6B2FF;
+    --color-support-gold: #FFC600;
+
+    /* Backgrounds */
+    --color-bg-light: #EBF7F7;
+    --color-white: #FFFFFF;
+
+    /* --- TYPOGRAPHY --- */
+    /* Principal (Títulos gigantes H1): Muy expresiva y pesada */
+    --font-primary: "Plein Black", 'Montserrat', sans-serif;
+
+    /* Secundaria (Subtítulos H2, H3, Botones): Inter en su versión gruesa (Bold/Black) */
+    --font-secondary: 'Inter', sans-serif;
+
+    /* Texto corrido (Párrafos): Inter en su versión ligera/regular */
+    --font-text: 'Inter', sans-serif;
+
+    /* Responsive Typography Sizes */
+    --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem);
+    --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem);
+    --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --step-1: clamp(1.35rem, calc(1.27rem + 0.39vw), 1.56rem);
+    --step-2: clamp(1.62rem, calc(1.50rem + 0.61vw), 1.95rem);
+    --step-3: clamp(1.94rem, calc(1.77rem + 0.92vw), 2.44rem);
+    --step-4: clamp(2.33rem, calc(2.08rem + 1.36vw), 3.05rem);
+    --step-5: clamp(2.80rem, calc(2.45rem + 1.97vw), 3.82rem);
+
+    /* Spacing */
+    --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
+    --space-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
+    --space-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --space-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
+    --space-l: clamp(2.25rem, calc(2.17rem + 0.43vw), 2.50rem);
+    --space-xl: clamp(3.38rem, calc(3.25rem + 0.65vw), 3.75rem);
+
+    /* Effects */
+    --shadow-premium: 0 10px 30px -10px rgba(0, 8, 65, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- RESET & BASE --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--color-bg-light);
+    color: var(--color-midnight);
+    font-family: var(--font-text);
+    line-height: 1.5;
+    overflow-x: hidden;
+    /* Mobile-first safety */
+}
+
+/* --- LAYOUT & GRID --- */
+.grid {
+    display: grid;
+    gap: var(--space-m);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-s);
+}
+
+/* Aspect Ratio 9:16 (Vertical flyers) */
+.aspect-9-16 {
+    aspect-ratio: 9 / 16;
+    background: var(--color-support-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition-smooth);
+}
+
+.aspect-9-16:hover {
+    transform: scale(1.02);
+}
+
+.poster-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+/* --- UTILITIES --- */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-s);
+}
+
+/* Section Hero Specific */
+.hero-gradient {
+    background: linear-gradient(135deg, var(--color-midnight) 0%, var(--color-corporate) 100%);
+    color: var(--color-white);
+}
+
+/* Typography Headings */
+h1,
+.h1 {
+    font-family: var(--font-primary);
+    font-size: var(--step-5);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+h2,
+.h2 {
+    font-family: var(--font-secondary);
+    font-size: var(--step-4);
+    line-height: 1.2;
+}
+
+h3,
+.h3 {
+    font-family: var(--font-secondary);
+    font-size: var(--step-3);
+}
+
+p {
+    font-family: var(--font-text);
+    font-size: var(--step-0);
+    font-weight: 400;
+}
+
+
+/* Buttons */
+.btn-action {
+    background-color: var(--color-action-orange);
+    color: var(--color-white);
+    padding: var(--space-s) var(--space-m);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-secondary);
+    font-weight: 900;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(254, 109, 0, 0.3);
+}
+
+.btn-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(254, 109, 0, 0.5);
+    filter: brightness(1.1);
+}
+
+.btn-action:active {
+    transform: translateY(-1px);
+}
+
+/* Graphic Accents */
+.accent-line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent-sky);
+    margin: var(--space-xs) 0;
+}
+
+.support-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-gold {
+    background-color: var(--color-support-gold);
+}
+
+.dot-sky {
+    background-color: var(--color-accent-sky);
+}
+
+/* Premium Cards */
+.card-glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: 20px;
+    padding: var(--space-m);
+    box-shadow: var(--shadow-premium);
+}
+
+/* Iframe Container */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 for Genially usually */
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: var(--shadow-premium);
+    margin-top: var(--space-m);
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.badge {
+    display: inline-block;
+    padding: var(--space-2xs) var(--space-xs);
+    background-color: var(--color-accent-sky);
+    color: var(--color-white);
+    font-family: var(--font-secondary);
+    font-weight: 900;
+    border-radius: 4px;
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    font-size: var(--step--1);
+}
+
+.section-padding {
+    padding: var(--space-xl) 0;
+}
